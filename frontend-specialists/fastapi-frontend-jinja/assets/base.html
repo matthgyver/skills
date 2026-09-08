@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Mon app{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/" class="site-nav__brand">Mon app</a>
+      <div class="site-nav__links">
+        <a href="/">Accueil</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {{ current_year | default("2026") }} Mon app</p>
+  </footer>
+
+  <script src="{{ url_for('static', path='js/app.js') }}"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
